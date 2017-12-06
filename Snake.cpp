@@ -17,7 +17,7 @@ bool Snake::is_at_position(int x, int y) {
 	return (x_ == x) && (y_ == y);
 }
 bool Snake::has_caught_mouse() {
-	return is_at_position(p_mouse_->x_, p_mouse_->y_);
+	return is_at_position(p_mouse_->get_x(), p_mouse_->get_y());
 }
 
 void Snake::spot_mouse(Mouse* p_mouse) {

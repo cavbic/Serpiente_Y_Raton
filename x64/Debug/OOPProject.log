@@ -1,12 +1,4 @@
-﻿  Underground.cpp
-  Nut.cpp
-  Game.cpp
-  Generating Code...
-  Compiling...
-  __MainApplication.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Snake.cpp
-  Mouse.cpp
-  OOPProject.vcxproj -> C:\Users\Ashley\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.exe
-  OOPProject.vcxproj -> C:\Users\Ashley\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.pdb (Partial PDB)
+﻿  Snake.cpp
+  LINK : C:\Users\Ashley\Source\Repos\new\Serpiente_Y_Raton\x64\Debug\OOPProject.exe not found or not built by the last incremental link; performing full link
+  OOPProject.vcxproj -> C:\Users\Ashley\Source\Repos\new\Serpiente_Y_Raton\x64\Debug\OOPProject.exe
+  OOPProject.vcxproj -> C:\Users\Ashley\Source\Repos\new\Serpiente_Y_Raton\x64\Debug\OOPProject.pdb (Partial PDB)
