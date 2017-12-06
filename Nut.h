@@ -18,10 +18,10 @@ public:
 	//constructors
 	Nut();
 	//assessors
-	int get_x();
-	int get_y();
+	int get_x()const;
+	int get_y()const;
 	char get_symbol() const;
-	bool is_at_position(int x, int y);
+	bool is_at_position(const int& x,const int& y) const;
 	bool has_been_collected() const;
 	void disappears();
 private:

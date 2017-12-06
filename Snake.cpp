@@ -4,6 +4,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "Snake.h"
+RandomNumberGenerator Snake::rng_;
 
 Snake::Snake():symbol_(SNAKEHEAD) {
 	position_at_random();
@@ -11,10 +12,10 @@ Snake::Snake():symbol_(SNAKEHEAD) {
 }
 Snake::~Snake()
 {}
-bool Snake::is_at_position(int x, int y) {
+bool Snake::is_at_position(const int& x, const int& y) const{
 	return (x_ == x) && (y_ == y);
 }
-bool Snake::has_caught_mouse() {
+bool Snake::has_caught_mouse() const{
 	return is_at_position(p_mouse_->get_x(), p_mouse_->get_y());
 }
 
@@ -50,7 +51,7 @@ void Snake::position_at_random() {
 	x_ = rng_.get_random_value(SIZE);        //WARNING: may fall on mouse
 	y_ = rng_.get_random_value(SIZE);
 }
-void Snake::update_position(int dx, int dy) {
+void Snake::update_position(const int& dx , const int& dy ) {
 	x_ += dx;
 	y_ += dy;
 }

@@ -28,10 +28,14 @@ using namespace std;
 class Underground {
 public:
 	Underground();
-	Hole get_hole_no(int no) const;
-	void set_hole_no_at_position(int no, int x, int y);
-	bool is_valid_hole_number(int n) const;
-	int getHolesSize() const;
+	//Hole get_hole_no(int no) const;
+	char get_Hole_Symbol() const;
+	void set_hole_no_at_position(const int& no,const int& x, const int& y);
+	bool is_valid_hole_number(const int& n) const;
+	int get_Holes_Size() const;
+	int find_hole_number_at_position(const int& x,const int& y);
+	int get_Hole_x(const int& holeNum) const;
+	int get_Hole_y(const int& holeNum) const;
 private:
 	const int MAXHOLES; //number of holes in underground
 	vector<Hole> holes_;

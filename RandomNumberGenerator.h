@@ -21,7 +21,7 @@ class RandomNumberGenerator
 		//constructors
 		RandomNumberGenerator();
 		//assessors
-		int get_random_value(int) const;
+		int get_random_value(const int& ) const;
 	private:
 		//supporting functions
 		void seed();

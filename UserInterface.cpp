@@ -17,11 +17,11 @@ void UserInterface::draw_grid_on_screen(const string& grid_data) const  {
 	cout << grid_data;
 }
 
-void UserInterface::show_results_on_screen(string message) const {
+void UserInterface::show_results_on_screen(const string& message) const {
 	cout << message;
 }
 
-void UserInterface::hold_window() {
+void UserInterface::hold_window() const{
 	cout << "\n\n";
 	system("pause");
 }

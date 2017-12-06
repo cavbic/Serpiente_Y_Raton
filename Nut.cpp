@@ -17,16 +17,16 @@ Nut::Nut():symbol_(NUT) {
 //////////////////////////////////////////////////////////////////////
 
 
-int Nut::get_x() {
+int Nut::get_x()const {
 	return x_;
 }
-int Nut::get_y() {
+int Nut::get_y()const {
 	return y_;
 }
 char Nut::get_symbol() const {
 	return symbol_;
 }
-bool Nut::is_at_position(int x, int y) {
+bool Nut::is_at_position(const int& x,const int& y) const {
 	return (x_ == x) && (y_ == y);
 }
 bool Nut::has_been_collected() const {

@@ -8,16 +8,14 @@ class Hole {
 public:
 	//constructors
 	Hole();
-	Hole(int x, int y);
+	Hole(const int& x,const int& y);
 	//assessors
 	int get_x() const;
 	int get_y() const;
-	char get_symbol() const;
-	bool is_at_position(int x, int y);
+	static const char get_symbol() ;
+	bool is_at_position(const int& x,const int& y) const;
 private:
-	static const int MAXHOLES; //number of holes in underground
-							   //data members
-	char symbol_;
+	static const char symbol_;
 	int x_, y_;
 };
 

@@ -46,9 +46,9 @@ string Game::prepare_grid() {
 					os << mouse_.get_symbol();	//show mouse
 				else
 				{
-					const int hole_no(find_hole_number_at_position(col, row));
+					const int hole_no(underground_.find_hole_number_at_position(col, row));
 					if (hole_no != -1)
-						os << underground_.get_hole_no(hole_no).get_symbol();	//show hole
+						os << underground_.get_Hole_Symbol();	//show hole
 					else
 					{
 						if ((row == nut_.get_y()) && (col == nut_.get_x()))
@@ -63,15 +63,10 @@ string Game::prepare_grid() {
 	return os.str();
 } //end prepare_grid
 
-bool Game::is_arrow_key_code(int keycode) {
+bool Game::is_arrow_key_code(const int& keycode) const{
 	return (keycode == LEFT) || (keycode == RIGHT) || (keycode == UP) || (keycode == DOWN);
 }
-int Game::find_hole_number_at_position(int x, int y) {
-	for (int h_no(0); h_no < underground_.getHolesSize(); ++h_no)
-		if (underground_.get_hole_no(h_no).is_at_position(x, y))
-			return h_no;		//number of the hole
-	return -1;				//not a hole
-}
+
 void Game::apply_rules() {
 	if ((mouse_.is_at_position(nut_.get_x(), nut_.get_y())))
 	{
@@ -84,10 +79,10 @@ void Game::apply_rules() {
 			mouse_.escape_into_hole();
 
 }
-bool Game::has_ended(char key) {
+bool Game::has_ended(const char& key) const {
 	return ((key == 'Q') || (!mouse_.is_alive()) || (mouse_.has_escaped()));
 }
-string Game::prepare_end_message() {
+string Game::prepare_end_message() const {
 	ostringstream os;
 	if (mouse_.has_escaped())
 		os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!";

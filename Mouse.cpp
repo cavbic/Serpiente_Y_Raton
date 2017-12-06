@@ -19,16 +19,16 @@ Mouse::Mouse(): symbol_(MOUSE), x_(0), y_(0),
 // Public functions
 //////////////////////////////////////////////////////////////////////
 
-int Mouse::get_x() {
+int Mouse::get_x()const {
 	return x_;
 }
-int Mouse::get_y() {
+int Mouse::get_y()const {
 	return y_;
 }
 char Mouse::get_symbol() const {
 	return symbol_;
 }
-bool Mouse::is_at_position(int x, int y) {
+bool Mouse::is_at_position(const int& x, const int& y)const {
 	return (x_ == x) && (y_ == y);
 }
 bool Mouse::is_alive() const {
@@ -37,11 +37,11 @@ bool Mouse::is_alive() const {
 bool Mouse::has_escaped() const {
 	return escaped_;
 }
-bool Mouse::has_reached_a_hole(Underground ug) {
-	for (int h_no(0); h_no < ug.getHolesSize(); ++h_no)
+bool Mouse::has_reached_a_hole(const Underground& ug) {
+	for (int h_no(0); h_no < ug.get_Holes_Size(); ++h_no)
 	{
-		Hole h = ug.get_hole_no(h_no);
-		if (is_at_position(h.get_x(), h.get_y()))
+		
+		if (is_at_position(ug.get_Hole_x(h_no), ug.get_Hole_y(h_no)))
 			return true;
 	}
 	return false;
@@ -53,7 +53,7 @@ void Mouse::escape_into_hole()
 {
 	escaped_ = true;
 }
-void Mouse::scamper(char k) { //move mouse in required direction
+void Mouse::scamper(const char& k) { //move mouse in required direction
   //pre: Key is an arrow representing the direction in which the mouse moves
 	//find direction indicated by key
 	switch(k)               //...depending on the selected key...
@@ -87,7 +87,7 @@ void Mouse::scamper(char k) { //move mouse in required direction
 // Private functions
 //////////////////////////////////////////////////////////////////////
 
-void Mouse::update_position(int dx, int dy) {
+void Mouse::update_position(const int& dx,const int& dy) {
 	x_ += dx; 
 	y_ += dy;
 }

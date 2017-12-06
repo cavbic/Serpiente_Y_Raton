@@ -2,10 +2,10 @@
 #include "Hole.h"
 
 
+const char Hole::symbol_(HOLE);
 Hole::Hole()
 {}
-Hole::Hole(int x, int y) {
-	symbol_ = HOLE;
+Hole::Hole(const int& x, const int& y) {
 	x_ = x;
 	y_ = y;
 }
@@ -15,9 +15,9 @@ int Hole::get_x() const{
 int Hole::get_y() const{
 	return y_;
 }
-char Hole::get_symbol() const {
+const char Hole::get_symbol() {
 	return symbol_;
 }
-bool Hole::is_at_position(int x, int y) {
+bool Hole::is_at_position(const int& x,const int& y) const {
 	return (x_ == x) && (y_ == y);
 }
