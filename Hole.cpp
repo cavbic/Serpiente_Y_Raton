@@ -9,10 +9,10 @@ Hole::Hole(int x, int y) {
 	x_ = x;
 	y_ = y;
 }
-int Hole::get_x() {
+int Hole::get_x() const{
 	return x_;
 }
-int Hole::get_y() {
+int Hole::get_y() const{
 	return y_;
 }
 char Hole::get_symbol() const {
