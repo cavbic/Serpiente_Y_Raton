@@ -1,0 +1,40 @@
+// Nut.cpp: implementation of the Nut class
+//////////////////////////////////////////////////////////////////////
+
+#include "Nut.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+Nut::Nut()
+{
+	symbol_ = NUT;
+	x_ = 8;
+	y_ = 9;
+}
+
+//////////////////////////////////////////////////////////////////////
+// Public functions
+//////////////////////////////////////////////////////////////////////
+
+
+int Nut::get_x() {
+	return x_;
+}
+int Nut::get_y() {
+	return y_;
+}
+char Nut::get_symbol() const {
+	return symbol_;
+}
+bool Nut::is_at_position(int x, int y) {
+	return (x_ == x) && (y_ == y);
+}
+bool Nut::has_been_collected() const {
+	return collected_;
+}
+void Nut::disappears() {
+	symbol_ = FREECELL;
+	collected_ = true;
+}

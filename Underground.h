@@ -22,6 +22,7 @@ using namespace std;
 
 #include "constants.h"
 #include "Hole.h"
+#include "Nut.h"
 
 
 class Underground {

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hole.cpp" />
+    <ClCompile Include="Nut.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hole.h" />
+    <ClInclude Include="Nut.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="Mouse.h" />

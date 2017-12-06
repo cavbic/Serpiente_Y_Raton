@@ -2,6 +2,7 @@
 #include "Snake.h"
 #include "Underground.h"
 #include "UserInterface.h"
+#include "Nut.h"
 #include <sstream>		//for streamstring
 
 class Game
@@ -9,6 +10,7 @@ class Game
 public:
 	Mouse mouse_;
 	Snake snake_;
+	Nut nut_;
 	Underground underground_;
 	UserInterface* p_ui;
 

@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/.vs/OOPProject/v15/ipch/AutoPCH/40d7a90b3e1d7c83/SNAKE.ipch
+/.vs/OOPProject/v15/ipch/AutoPCH/7838aa05ce5ae6e4/UNDERGROUND.ipch
+/.vs/OOPProject/v15/ipch/AutoPCH/b2d9490357a0bc47/HOLE.ipch
+/.vs/OOPProject/v15/Browse.VC.opendb

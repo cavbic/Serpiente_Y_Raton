@@ -20,6 +20,7 @@
 #define SNAKEHEAD ('S')	//snake symbol
 #define MOUSE     ('M')	//mouse symbol
 #define HOLE      ('H')	//hole symbol
+#define NUT		  ('N') //nut symbol
 #define FREECELL  ('.')	//empty cell on grid
 
 //defining the command letters to move the mouse on the maze

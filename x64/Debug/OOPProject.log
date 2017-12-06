@@ -1,3 +1,12 @@
-﻿  __MainApplication.cpp
-  OOPProject.vcxproj -> C:\Users\b6012490\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.exe
-  OOPProject.vcxproj -> C:\Users\b6012490\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.pdb (Partial PDB)
+﻿  Underground.cpp
+  Nut.cpp
+  Game.cpp
+  Generating Code...
+  Compiling...
+  __MainApplication.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Snake.cpp
+  Mouse.cpp
+  OOPProject.vcxproj -> C:\Users\Ashley\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.exe
+  OOPProject.vcxproj -> C:\Users\Ashley\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.pdb (Partial PDB)

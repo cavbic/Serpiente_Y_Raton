@@ -3,7 +3,7 @@
 
 void Game::set_up(UserInterface* pui) {
 	//prepare game
-	//set up the holes
+	//set up the holes and nut
 	underground_.set_hole_no_at_position(0, 4, 3);
 	underground_.set_hole_no_at_position(1, 15, 10);
 	underground_.set_hole_no_at_position(2, 7, 15);
@@ -11,6 +11,7 @@ void Game::set_up(UserInterface* pui) {
 	//set up snake
 	snake_.position_at_random();
 	snake_.spot_mouse(&mouse_);
+	
 	//set up the UserInterface
 	p_ui = pui;
 }
@@ -49,7 +50,12 @@ string Game::prepare_grid() {
 					if (hole_no != -1)
 						os << underground_.get_hole_no(hole_no).get_symbol();	//show hole
 					else
-						os << FREECELL;	//show free grid cell
+					{
+						if ((row == nut_.get_y()) && (col == nut_.get_x()))
+							os << nut_.get_symbol(); //show nut
+						else
+							os << FREECELL;	//show free grid cell
+					}
 				}
 		} //end of col-loop
 		os << endl;
@@ -67,11 +73,16 @@ int Game::find_hole_number_at_position(int x, int y) {
 	return -1;				//not a hole
 }
 void Game::apply_rules() {
+	if ((mouse_.is_at_position(nut_.get_x(), nut_.get_y())))
+	{
+		nut_.disappears();
+	}
 	if (snake_.has_caught_mouse())
 		mouse_.die();
 	else
-		if (mouse_.has_reached_a_hole(underground_))
+		if ((mouse_.has_reached_a_hole(underground_))&&(nut_.has_been_collected()))
 			mouse_.escape_into_hole();
+
 }
 bool Game::has_ended(char key) {
 	return ((key == 'Q') || (!mouse_.is_alive()) || (mouse_.has_escaped()));
