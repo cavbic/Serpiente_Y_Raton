@@ -30,7 +30,11 @@ public:
 	Hole get_hole_no(int no) const;
 	void set_hole_no_at_position(int no, int x, int y);
 	bool is_valid_hole_number(int n) const;
+	int getHolesSize() const;
+private:
+	const int MAXHOLES; //number of holes in underground
 	vector<Hole> holes_;
+
 };
 
 #endif // !defined(UndergroundH) 

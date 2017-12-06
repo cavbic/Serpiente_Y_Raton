@@ -18,10 +18,15 @@ class Snake {
 		void set_direction(int& dx, int& dy);
 		void position_at_random();
 		void update_position(int dx, int dy);
-		char symbol_;
+		int get_X() const;
+		int get_Y() const;
+		char get_Symbol() const;
+
+	private:
 		int x_, y_;
-		Mouse* p_mouse_;
+		const char symbol_ ;
 		RandomNumberGenerator rng_;
+		Mouse* p_mouse_;
 };
 
 #endif // !defined(SnakeH)

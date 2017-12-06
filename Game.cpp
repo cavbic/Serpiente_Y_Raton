@@ -38,8 +38,8 @@ string Game::prepare_grid() {
 	{
 		for (int col(1); col <= SIZE; ++col)	//for each column (horizontally)
 		{
-			if ((row == snake_.y_) && (col == snake_.x_))
-				os << snake_.symbol_;	//show snake
+			if ((row == snake_.get_Y()) && (col == snake_.get_X()))
+				os << snake_.get_Symbol();	//show snake
 			else
 				if ((row == mouse_.get_y()) && (col == mouse_.get_x()))
 					os << mouse_.get_symbol();	//show mouse
@@ -61,7 +61,7 @@ bool Game::is_arrow_key_code(int keycode) {
 	return (keycode == LEFT) || (keycode == RIGHT) || (keycode == UP) || (keycode == DOWN);
 }
 int Game::find_hole_number_at_position(int x, int y) {
-	for (int h_no(0); h_no < underground_.holes_.size(); ++h_no)
+	for (int h_no(0); h_no < underground_.getHolesSize(); ++h_no)
 		if (underground_.get_hole_no(h_no).is_at_position(x, y))
 			return h_no;		//number of the hole
 	return -1;				//not a hole

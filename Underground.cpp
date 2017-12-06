@@ -7,8 +7,8 @@
 
 
 
-static const int MAXHOLES(3); //number of holes in underground
-Underground::Underground() : holes_(MAXHOLES)
+
+Underground::Underground() :MAXHOLES(3), holes_(MAXHOLES)
 {}
 
 Hole Underground::get_hole_no(int no) const {
@@ -26,4 +26,9 @@ void Underground::set_hole_no_at_position(int no, int x, int y) {
 }
 bool Underground::is_valid_hole_number(int no) const {
 	return (no >= 0) && (no < holes_.size()); 
+}
+
+int Underground::getHolesSize() const
+{
+	return static_cast<int>(holes_.size());
 }
