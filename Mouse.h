@@ -29,6 +29,7 @@ class Mouse {
 		void die();
 		void escape_into_hole();
 		void scamper(char k);
+		
 	private:
 		//data members
 		int  x_, y_;

@@ -7,9 +7,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Nut::Nut()
-{
-	symbol_ = NUT;
+Nut::Nut():symbol_(NUT) {
 	x_ = 8;
 	y_ = 9;
 }
