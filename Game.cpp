@@ -92,8 +92,11 @@ string Game::prepare_end_message() const {
 		cout << "\nNew Score: " << p_p->get_score_amount();
 	}
 	else
-		if (!mouse_.is_alive())
+		if (!mouse_.is_alive()) {
+			p_p->update_score_amount(-1);
 			os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!";
+			cout << "\nNew Score: " << p_p->get_score_amount();
+		}
 		else
 			os << "\n\nEND OF GAME: THE PLAYER ENDED THE GAME!";
 	return os.str();

@@ -28,7 +28,7 @@ void Snake::chase_mouse() {
 	//go in that direction
 	update_position(snake_dx, snake_dy);
 }
-void Snake::set_direction(int dx, int dy)
+void Snake::set_direction(int& dx, int& dy)
 {
 	assert(p_mouse_ != nullptr);  //Pre-condition: The snake needs to know where the mouse is 
 	//assume snake only move when necessary
