@@ -1,23 +1,24 @@
-
 #include "Game.h"
 
-void Game::set_up(UserInterface* pui) {
+void Game::set_up(UserInterface* pui, Player& player_) {
 	//prepare game
 	//set up the holes and nut
-	underground_.set_hole_no_at_position(0, 4, 3);
-	underground_.set_hole_no_at_position(1, 15, 10);
-	underground_.set_hole_no_at_position(2, 7, 15);
+	underground_.add_hole_at_position(4, 3);
+	underground_.add_hole_at_position(15, 10);
+	underground_.add_hole_at_position(7, 15);
 	//mouse state already set up in its contructor
 	//set up snake
 	snake_.position_at_random();
 	snake_.spot_mouse(&mouse_);
-	
+
 	//set up the UserInterface
 	p_ui = pui;
+	p_p = &player_;
 }
 void Game::run() {
 	assert(p_ui != nullptr);
 	p_ui->draw_grid_on_screen(prepare_grid());
+	p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
 	key_ = p_ui->get_keypress_from_user();
 	while (!has_ended(key_))
 	{
@@ -26,6 +27,7 @@ void Game::run() {
 			mouse_.scamper(key_);
 			snake_.chase_mouse();
 			p_ui->draw_grid_on_screen(prepare_grid());
+			p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
 			apply_rules();
 		}
 		key_ = p_ui->get_keypress_from_user();
@@ -51,7 +53,7 @@ string Game::prepare_grid() {
 						os << underground_.get_Hole_Symbol();	//show hole
 					else
 					{
-						if ((row == nut_.get_y()) && (col == nut_.get_x())&&(nut_.has_been_collected()==false))
+						if ((row == nut_.get_y()) && (col == nut_.get_x()) && (nut_.has_been_collected() == false))
 							os << nut_.get_Symbol(); //show nut
 						else
 							os << FREECELL;	//show free grid cell
@@ -63,7 +65,7 @@ string Game::prepare_grid() {
 	return os.str();
 } //end prepare_grid
 
-bool Game::is_arrow_key_code(const int& keycode) const{
+bool Game::is_arrow_key_code(const int& keycode) const {
 	return (keycode == LEFT) || (keycode == RIGHT) || (keycode == UP) || (keycode == DOWN);
 }
 
@@ -75,7 +77,7 @@ void Game::apply_rules() {
 	if (snake_.has_caught_mouse())
 		mouse_.die();
 	else
-		if ((mouse_.has_reached_a_hole(underground_))&&(nut_.has_been_collected()))
+		if ((mouse_.has_reached_a_hole(underground_)) && (nut_.has_been_collected()))
 			mouse_.escape_into_hole();
 
 }
@@ -84,8 +86,11 @@ bool Game::has_ended(const char& key) const {
 }
 string Game::prepare_end_message() const {
 	ostringstream os;
-	if (mouse_.has_escaped())
+	if (mouse_.has_escaped()) {
+		p_p->update_score_amount(1);
 		os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!";
+		cout << "\nNew Score: " << p_p->get_score_amount();
+	}
 	else
 		if (!mouse_.is_alive())
 			os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!";
