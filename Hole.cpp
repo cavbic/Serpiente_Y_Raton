@@ -11,7 +11,7 @@ Hole& Hole::operator=(const Hole& hole)
 	this->y_ = hole.y_;
 	return *this;
 }
-Hole::Hole(const int& x, const int& y) {
+Hole::Hole(const int x, const int y) {
 	x_ = x;
 	y_ = y;
 	
@@ -25,6 +25,6 @@ int Hole::get_y() const{
 const char Hole::get_symbol() {
 	return symbol_;
 }
-bool Hole::is_at_position(const int& x,const int& y) const {
+bool Hole::is_at_position(const int x,const int y) const {
 	return (x_ == x) && (y_ == y);
 }

@@ -1,5 +1,5 @@
 #include "FixedGridItem.h"
-FixedGridItem::FixedGridItem(const int& x, const int& y, const char& symbol) :x_(x), y_(y), GridItem(symbol)
+FixedGridItem::FixedGridItem(const int x, const int y, const char& symbol) :x_(x), y_(y), GridItem(symbol)
 {}
 
 FixedGridItem & FixedGridItem::operator=(const FixedGridItem& mgi)
@@ -16,6 +16,6 @@ int FixedGridItem::get_y() const
 {
 	return y_;
 }
-bool FixedGridItem::is_at_position(const int& x, const int& y) const {
+bool FixedGridItem::is_at_position(const int x, const int y) const {
 	return (x_ == x) && (y_ == y);
 }

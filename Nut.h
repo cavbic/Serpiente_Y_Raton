@@ -15,15 +15,10 @@
 #include "MoveableGridItem.h"
 class Nut: public MoveableGridItem {
 public:
-	//constructors
 	Nut();
-	//assessors
-
-
 	bool has_been_collected() const;
 	void disappears();
 private:
-	//data members
 	bool collected_;
 };
 

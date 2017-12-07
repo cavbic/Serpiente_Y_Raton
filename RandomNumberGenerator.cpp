@@ -16,7 +16,7 @@ RandomNumberGenerator::RandomNumberGenerator() {
 // Public functions
 //////////////////////////////////////////////////////////////////////
 
-int RandomNumberGenerator::get_random_value(const int& max) const {
+int RandomNumberGenerator::get_random_value(const int max) const {
 //produce a random number in range [1..max]
 	return (rand() % max) + 1;
 }

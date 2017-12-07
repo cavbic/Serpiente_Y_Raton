@@ -65,7 +65,7 @@ string Game::prepare_grid() {
 	return os.str();
 } //end prepare_grid
 
-bool Game::is_arrow_key_code(const int& keycode) const {
+bool Game::is_arrow_key_code(const int keycode) const {
 	return (keycode == LEFT) || (keycode == RIGHT) || (keycode == UP) || (keycode == DOWN);
 }
 
