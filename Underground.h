@@ -30,8 +30,7 @@ public:
 	Underground();
 	//Hole get_hole_no(int no) const;
 	char get_Hole_Symbol() const;
-	void set_hole_no_at_position(const int& no,const int& x, const int& y);
-	bool is_valid_hole_number(const int& n) const;
+	void add_hole_at_position(const int& x, const int& y);
 	int get_Holes_Size() const;
 	int find_hole_number_at_position(const int& x,const int& y);
 	int get_Hole_x(const int& holeNum) const;
