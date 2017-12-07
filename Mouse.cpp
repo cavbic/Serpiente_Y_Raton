@@ -1,17 +1,13 @@
 // Mouse.cpp: implementation of the Mouse class
 //////////////////////////////////////////////////////////////////////
-
 #include "Mouse.h"
-#include "Nut.h"
-
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Mouse::Mouse(): symbol_(MOUSE), x_(0), y_(0),    
-                alive_(true), escaped_(false), 
-				mouse_dx_(0), mouse_dy_(0) {
+Mouse::Mouse():MoveableGridItem(SIZE / 2, SIZE / 2,MOUSE), alive_(true), escaped_(false)
+{
 	position_in_middle_of_grid(); 
 }
 
@@ -19,18 +15,6 @@ Mouse::Mouse(): symbol_(MOUSE), x_(0), y_(0),
 // Public functions
 //////////////////////////////////////////////////////////////////////
 
-int Mouse::get_x()const {
-	return x_;
-}
-int Mouse::get_y()const {
-	return y_;
-}
-char Mouse::get_symbol() const {
-	return symbol_;
-}
-bool Mouse::is_at_position(const int& x, const int& y)const {
-	return (x_ == x) && (y_ == y);
-}
 bool Mouse::is_alive() const {
 	return alive_;
 }
@@ -56,6 +40,8 @@ void Mouse::escape_into_hole()
 void Mouse::scamper(const char& k) { //move mouse in required direction
   //pre: Key is an arrow representing the direction in which the mouse moves
 	//find direction indicated by key
+	int mouse_dx_;
+	int mouse_dy_;
 	switch(k)               //...depending on the selected key...
 	{
 		case LEFT:           //when LEFT arrow pressed...
@@ -76,8 +62,8 @@ void Mouse::scamper(const char& k) { //move mouse in required direction
 			break;
 	}
 	//update mouse coordinates if move is possible
-	if (((x_ + mouse_dx_) >= 1) && ((x_ + mouse_dx_) <= SIZE) &&
-		 ((y_ + mouse_dy_) >= 1) && ((y_ + mouse_dy_) <= SIZE) )
+	if (((get_x() + mouse_dx_) >= 1) && ((get_x() + mouse_dx_) <= SIZE) &&
+		 ((get_y() + mouse_dy_) >= 1) && ((get_y() + mouse_dy_) <= SIZE) )
 	{
 		update_position(mouse_dx_, mouse_dy_);		//go in that direction
 	}
@@ -87,11 +73,8 @@ void Mouse::scamper(const char& k) { //move mouse in required direction
 // Private functions
 //////////////////////////////////////////////////////////////////////
 
-void Mouse::update_position(const int& dx,const int& dy) {
-	x_ += dx; 
-	y_ += dy;
-}
+
 void Mouse::position_in_middle_of_grid() {
-	x_ = SIZE /2;
-	y_ = SIZE /2;
+	//x_ = SIZE /2;
+	//y_ = SIZE /2;
 }

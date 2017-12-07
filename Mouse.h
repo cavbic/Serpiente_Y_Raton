@@ -10,18 +10,16 @@
 #if !defined(MouseH)
 #define MouseH
 
+#include "Nut.h"
 #include "constants.h"
 #include "Underground.h"
-
-class Mouse {
+#include "MoveableGridItem.h"
+class Mouse:public MoveableGridItem {
 	public:
 		//constructor
 		Mouse::Mouse();
 		//assessors
-		int get_x() const;
-		int get_y() const;
-		char get_symbol() const;
-		bool is_at_position(const int& x,const int& y)const;
+
 		bool is_alive() const;
 		bool has_escaped() const;
 		bool has_reached_a_hole(const Underground& ug);
@@ -32,15 +30,11 @@ class Mouse {
 		
 	private:
 		//data members
-		int  x_, y_;
-		char symbol_;
 		bool alive_;
 		bool escaped_;
-		int mouse_dx_;
-		int mouse_dy_; 
 		//supporting functions 
 		void position_in_middle_of_grid();
-		void update_position(const int& dx,const int& dy);
+
 };
 
 #endif // !defined(MouseH)

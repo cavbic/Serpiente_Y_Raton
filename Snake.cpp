@@ -6,15 +6,13 @@
 #include "Snake.h"
 RandomNumberGenerator Snake::rng_;
 
-Snake::Snake():symbol_(SNAKEHEAD) {
+Snake::Snake():MoveableGridItem(rng_.get_random_value(SIZE), rng_.get_random_value(SIZE), SNAKEHEAD)
+{
 	position_at_random();
 	p_mouse_ = nullptr; //to make the pointer is safe before the snake spots the mouse
+	
 }
-Snake::~Snake()
-{}
-bool Snake::is_at_position(const int& x, const int& y) const{
-	return (x_ == x) && (y_ == y);
-}
+
 bool Snake::has_caught_mouse() const{
 	return is_at_position(p_mouse_->get_x(), p_mouse_->get_y());
 }
@@ -36,35 +34,20 @@ void Snake::set_direction(int& dx, int& dy)
 	//assume snake only move when necessary
 	dx = 0; dy = 0;
 		//update coordinate if necessary
-	if (x_ < p_mouse_->get_x())             //if snake on left of mouse
+	if (get_x() < p_mouse_->get_x())             //if snake on left of mouse
 		dx = 1;                          //snake should move right
 	else                                    //otherwise
-		if (x_ > p_mouse_->get_x())         //if snake on left of mouse
+		if (get_x() > p_mouse_->get_x())         //if snake on left of mouse
 			dx = -1;                     //snake should move left
-	if (y_ < p_mouse_->get_y())             //if snake is above mouse
+	if (get_y() < p_mouse_->get_y())             //if snake is above mouse
 		dy = 1;                          //snake should move down
 	else                                    //otherwise
-		if (y_ > p_mouse_->get_y())         //if snake is below mouse
+		if (get_y() > p_mouse_->get_y())         //if snake is below mouse
 			dy = -1;                     //snake should move up
 }
 void Snake::position_at_random() {
-	x_ = rng_.get_random_value(SIZE);        //WARNING: may fall on mouse
-	y_ = rng_.get_random_value(SIZE);
-}
-void Snake::update_position(const int& dx , const int& dy ) {
-	x_ += dx;
-	y_ += dy;
+	//spawn_x_ = rng_.get_random_value(SIZE);        //WARNING: may fall on mouse
+	//spawn_y_ = rng_.get_random_value(SIZE);
 }
 
-int Snake::get_X() const
-{
-	return x_;
-}
-int Snake::get_Y() const
-{
-	return y_;
-}
-char Snake::get_Symbol() const
-{
-	return symbol_;
-}
+

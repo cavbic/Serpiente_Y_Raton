@@ -8,6 +8,7 @@ class Hole {
 public:
 	//constructors
 	Hole();
+	Hole& operator =(const Hole&);
 	Hole(const int& x,const int& y);
 	//assessors
 	int get_x() const;

@@ -7,32 +7,15 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Nut::Nut():symbol_(NUT) {
-	x_ = 8;
-	y_ = 9;
-}
+Nut::Nut():MoveableGridItem(8, 9, NUT) {}
 
 //////////////////////////////////////////////////////////////////////
 // Public functions
 //////////////////////////////////////////////////////////////////////
 
-
-int Nut::get_x()const {
-	return x_;
-}
-int Nut::get_y()const {
-	return y_;
-}
-char Nut::get_symbol() const {
-	return symbol_;
-}
-bool Nut::is_at_position(const int& x,const int& y) const {
-	return (x_ == x) && (y_ == y);
-}
 bool Nut::has_been_collected() const {
 	return collected_;
 }
 void Nut::disappears() {
-	symbol_ = FREECELL;
 	collected_ = true;
 }

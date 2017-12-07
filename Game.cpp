@@ -39,11 +39,11 @@ string Game::prepare_grid() {
 	{
 		for (int col(1); col <= SIZE; ++col)	//for each column (horizontally)
 		{
-			if ((row == snake_.get_Y()) && (col == snake_.get_X()))
+			if ((row == snake_.get_y()) && (col == snake_.get_x()))
 				os << snake_.get_Symbol();	//show snake
 			else
 				if ((row == mouse_.get_y()) && (col == mouse_.get_x()))
-					os << mouse_.get_symbol();	//show mouse
+					os << mouse_.get_Symbol();	//show mouse
 				else
 				{
 					const int hole_no(underground_.find_hole_number_at_position(col, row));
@@ -51,8 +51,8 @@ string Game::prepare_grid() {
 						os << underground_.get_Hole_Symbol();	//show hole
 					else
 					{
-						if ((row == nut_.get_y()) && (col == nut_.get_x()))
-							os << nut_.get_symbol(); //show nut
+						if ((row == nut_.get_y()) && (col == nut_.get_x())&&(nut_.has_been_collected()==false))
+							os << nut_.get_Symbol(); //show nut
 						else
 							os << FREECELL;	//show free grid cell
 					}

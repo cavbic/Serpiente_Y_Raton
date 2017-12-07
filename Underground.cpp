@@ -26,6 +26,7 @@ void Underground::set_hole_no_at_position(const int& no,const int& x, const int&
 	case 0: holes_.at(0) = h; break;
 	case 1: holes_.at(1) = h; break;
 	case 2: holes_.at(2) = h; break;
+
 	}
 }
 bool Underground::is_valid_hole_number(const int& no) const {

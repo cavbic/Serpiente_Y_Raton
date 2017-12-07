@@ -12,22 +12,18 @@
 
 #include "constants.h"
 #include "Underground.h"
-
-class Nut {
+#include "MoveableGridItem.h"
+class Nut: public MoveableGridItem {
 public:
 	//constructors
 	Nut();
 	//assessors
-	int get_x()const;
-	int get_y()const;
-	char get_symbol() const;
-	bool is_at_position(const int& x,const int& y) const;
+
+
 	bool has_been_collected() const;
 	void disappears();
 private:
 	//data members
-	char symbol_;
-	int  x_, y_;
 	bool collected_;
 };
 
