@@ -7,6 +7,8 @@
 #include "Nut.h"
 #include "Player.h"
 #include <sstream>		
+#include <fstream>
+#include <iostream>
 
 class Game
 {
@@ -18,7 +20,6 @@ public:
 	void apply_rules();
 	bool has_ended(const char& key) const;
 	string prepare_end_message() const;
-
 private:
 	Mouse mouse_;
 	Snake snake_;

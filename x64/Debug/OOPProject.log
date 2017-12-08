@@ -1,3 +1,20 @@
 ﻿  Snake.cpp
-  OOPProject.vcxproj -> C:\Users\cavbi\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.exe
-  OOPProject.vcxproj -> C:\Users\cavbi\Source\Repos\Serpiente_Y_Raton\x64\Debug\OOPProject.pdb (Partial PDB)
+  Hole.cpp
+  Game.cpp
+c:\users\cavbi\source\repos\serpiente_y_raton\game.cpp(30): error C2059: syntax error: ';'
+  Generating Code...
+  Compiling...
+  Underground.cpp
+c:\users\cavbi\source\repos\serpiente_y_raton\underground.cpp(25): error C2039: 'is_at_position': is not a member of 'Hole'
+  c:\users\cavbi\source\repos\serpiente_y_raton\hole.h(7): note: see declaration of 'Hole'
+c:\users\cavbi\source\repos\serpiente_y_raton\underground.cpp(31): error C2039: 'get_x': is not a member of 'Hole'
+  c:\users\cavbi\source\repos\serpiente_y_raton\hole.h(7): note: see declaration of 'Hole'
+c:\users\cavbi\source\repos\serpiente_y_raton\underground.cpp(35): error C2039: 'get_y': is not a member of 'Hole'
+  c:\users\cavbi\source\repos\serpiente_y_raton\hole.h(7): note: see declaration of 'Hole'
+  Generating Code...
+  Compiling...
+  __MainApplication.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Nut.cpp
+  Mouse.cpp

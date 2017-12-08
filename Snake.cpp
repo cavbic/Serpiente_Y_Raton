@@ -37,16 +37,16 @@ void Snake::set_direction(int& dx, int& dy)
 	//assume snake only move when necessary
 	dx = 0; dy = 0;
 		//update coordinate if necessary
-	if (get_x() < p_mouse_->get_x())          //if snake on left of mouse
-		dx = 1;							     //snake should move right
-	else                                    //otherwise
-		if (get_x() > p_mouse_->get_x())   //if snake on left of mouse
+	if (get_x() < p_mouse_->get_x())      //if snake on left of mouse
+		dx = 1;							  //snake should move right
+	else                                  //otherwise
+		if (get_x() > p_mouse_->get_x())  //if snake on left of mouse
 			dx = -1;                      //snake should move left
-	if (get_y() < p_mouse_->get_y())             //if snake is above mouse
-		dy = 1;                          //snake should move down
-	else                                    //otherwise
-		if (get_y() > p_mouse_->get_y())         //if snake is below mouse
-			dy = -1;                     //snake should move up
+	if (get_y() < p_mouse_->get_y())      //if snake is above mouse
+		dy = 1;                           //snake should move down
+	else                                  //otherwise
+		if (get_y() > p_mouse_->get_y())  //if snake is below mouse
+			dy = -1;                      //snake should move up
 }
 
 void Snake::position_at_random() {

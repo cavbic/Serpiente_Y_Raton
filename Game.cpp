@@ -27,7 +27,8 @@ void Game::run() {
 			mouse_.scamper(key_);
 			snake_.tail_Move();
 			snake_.chase_mouse();
-			p_ui->draw_grid_on_screen(prepare_grid());
+			prepare_grid() >> ;
+			/*p_ui->draw_grid_on_screen(prepare_grid());*/
 			p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
 			apply_rules();
 		}

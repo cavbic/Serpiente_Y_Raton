@@ -8,7 +8,7 @@
 
 Mouse::Mouse():MoveableGridItem(SIZE / 2, SIZE / 2,MOUSE), alive_(true), escaped_(false)
 {
-	position_in_middle_of_grid(); 
+	//position_in_middle_of_grid(); 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -21,10 +21,9 @@ bool Mouse::is_alive() const {
 bool Mouse::has_escaped() const {
 	return escaped_;
 }
-bool Mouse::has_reached_a_hole(const Underground& ug) {
+bool Mouse::has_reached_a_hole(const Underground& ug) const {
 	for (int h_no(0); h_no < ug.get_Holes_Size(); ++h_no)
 	{
-		
 		if (is_at_position(ug.get_Hole_x(h_no), ug.get_Hole_y(h_no)))
 			return true;
 	}
@@ -74,7 +73,7 @@ void Mouse::scamper(const char& k) { //move mouse in required direction
 //////////////////////////////////////////////////////////////////////
 
 
-void Mouse::position_in_middle_of_grid() {
-	//x_ = SIZE /2;
-	//y_ = SIZE /2;
-}
+//void Mouse::position_in_middle_of_grid() {
+//	//x_ = SIZE /2;
+//	//y_ = SIZE /2;
+//}

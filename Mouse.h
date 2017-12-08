@@ -22,7 +22,7 @@ class Mouse:public MoveableGridItem {
 
 		bool is_alive() const;
 		bool has_escaped() const;
-		bool has_reached_a_hole(const Underground& ug);
+		bool has_reached_a_hole(const Underground& ug) const;
 		//mutators
 		void die();
 		void escape_into_hole();

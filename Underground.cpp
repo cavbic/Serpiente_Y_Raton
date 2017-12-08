@@ -13,7 +13,7 @@ char Underground::get_Hole_Symbol() const
 	return HOLE;
 }
 void Underground::add_hole_at_position(const int x, const int y) {
-	Hole h(x, y);
+	const Hole h(x, y);
 	holes_.push_back(h);
 }
 int Underground::get_Holes_Size() const
