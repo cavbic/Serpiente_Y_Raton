@@ -25,6 +25,7 @@ void Game::run() {
 		if (is_arrow_key_code(key_))
 		{
 			mouse_.scamper(key_);
+			snake_.tail_Move();
 			snake_.chase_mouse();
 			p_ui->draw_grid_on_screen(prepare_grid());
 			p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
@@ -44,19 +45,23 @@ string Game::prepare_grid() {
 			if ((row == snake_.get_y()) && (col == snake_.get_x()))
 				os << snake_.get_Symbol();	//show snake
 			else
-				if ((row == mouse_.get_y()) && (col == mouse_.get_x()))
-					os << mouse_.get_Symbol();	//show mouse
-				else
-				{
-					const int hole_no(underground_.find_hole_number_at_position(col, row));
-					if (hole_no != -1)
-						os << underground_.get_Hole_Symbol();	//show hole
+				if ((snake_.is_Tail_Here(col, row)))
+					os << SNAKETAIL;
+				else {
+					if ((row == mouse_.get_y()) && (col == mouse_.get_x()))
+						os << mouse_.get_Symbol();	//show mouse
 					else
 					{
-						if ((row == nut_.get_y()) && (col == nut_.get_x()) && (nut_.has_been_collected() == false))
-							os << nut_.get_Symbol(); //show nut
+						const int hole_no(underground_.find_hole_number_at_position(col, row));
+						if (hole_no != -1)
+							os << underground_.get_Hole_Symbol();	//show hole
 						else
-							os << FREECELL;	//show free grid cell
+						{
+							if ((row == nut_.get_y()) && (col == nut_.get_x()) && (nut_.has_been_collected() == false))
+								os << nut_.get_Symbol(); //show nut
+							else
+								os << FREECELL;	//show free grid cell
+						}
 					}
 				}
 		} //end of col-loop

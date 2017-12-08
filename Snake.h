@@ -6,6 +6,8 @@
 #include "Mouse.h"
 #include "RandomNumberGenerator.h"
 #include "MoveableGridItem.h"
+#include "TailItem.h"
+#include <vector>
 class Snake: public MoveableGridItem{
 	public:
 		Snake();
@@ -14,10 +16,12 @@ class Snake: public MoveableGridItem{
 		void chase_mouse();
 		void set_direction(int& dx, int& dy);
 		static void position_at_random();
-
+		void tail_Move();
+		bool is_Tail_Here(const int x, const int y);
 	private:
 		static RandomNumberGenerator rng_;
 		Mouse* p_mouse_;
+		vector<TailItem> tail_;
 };
 
 #endif // !defined(SnakeH)

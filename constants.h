@@ -18,6 +18,7 @@
 
 //defining symbols used for display of the grid and grid items
 #define SNAKEHEAD ('S')	//snake symbol
+#define SNAKETAIL ('T') //snake tail symbol
 #define MOUSE     ('M')	//mouse symbol
 #define HOLE      ('H')	//hole symbol
 #define NUT		  ('N') //nut symbol
