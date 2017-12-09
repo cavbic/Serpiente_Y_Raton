@@ -22,7 +22,7 @@ int Underground::get_Holes_Size() const
 }
 int Underground::find_hole_number_at_position(const int x, const int y) {
 	for (int h_no(0); h_no < get_Holes_Size(); ++h_no)
-		if (holes_.at(h_no).is_at_position(x, y))
+		if (holes_.at(h_no).is_at_position(x,y))
 			return h_no;		//number of the hole
 	return -1;				//not a hole
 }

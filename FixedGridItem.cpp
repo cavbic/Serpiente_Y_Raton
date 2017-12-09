@@ -2,10 +2,10 @@
 FixedGridItem::FixedGridItem(const int x, const int y, const char& symbol) :x_(x), y_(y), GridItem(symbol)
 {}
 
-FixedGridItem & FixedGridItem::operator=(const FixedGridItem& mgi)
+FixedGridItem & FixedGridItem::operator=(const FixedGridItem& fgi)
 {
-	x_ = mgi.get_x();
-	y_ = mgi.get_y();
+	x_ = fgi.get_x();
+	y_ = fgi.get_y();
 	return *this;
 }
 int FixedGridItem::get_x() const

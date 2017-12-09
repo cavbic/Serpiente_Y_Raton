@@ -1,4 +1,3 @@
-
 using namespace std;
 
 //include class modules
@@ -17,9 +16,10 @@ int main()
 	do
 	{
 		Game game;
-		game.set_up(&ui, player_);
+		game.set_up(&ui, player_);	
 		game.run();
 	} while (ui.play_again() == 'Y');
+
 	cout << "\nEND";
 
 	ui.hold_window();

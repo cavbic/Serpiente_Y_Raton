@@ -20,6 +20,8 @@ public:
 	void apply_rules();
 	bool has_ended(const char& key) const;
 	string prepare_end_message() const;
+	friend ofstream& operator <<(ofstream& fout, Game& game);
+	friend ifstream& operator >>(ifstream& fin, Game& game);
 private:
 	Mouse mouse_;
 	Snake snake_;
@@ -29,4 +31,5 @@ private:
 	Player* p_p;
 	int key_;
 	char input_;
+	string importedGameData;
 };

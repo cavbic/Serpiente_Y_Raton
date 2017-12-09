@@ -23,7 +23,7 @@ using namespace std;
 #include "constants.h"
 #include "Hole.h"
 #include "Nut.h"
-
+#include "FixedGridItem.h"
 
 class Underground {
 public:

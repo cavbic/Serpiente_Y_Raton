@@ -27,8 +27,7 @@ void Game::run() {
 			mouse_.scamper(key_);
 			snake_.tail_Move();
 			snake_.chase_mouse();
-			prepare_grid() >> ;
-			/*p_ui->draw_grid_on_screen(prepare_grid());*/
+			p_ui->draw_grid_on_screen(prepare_grid());
 			p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
 			apply_rules();
 		}
@@ -106,4 +105,16 @@ string Game::prepare_end_message() const {
 		else
 			os << "\n\nEND OF GAME: THE PLAYER ENDED THE GAME!";
 	return os.str();
+}
+
+ofstream& operator<< (ofstream& fout, Game& game)
+{
+	fout << game.prepare_grid();
+	return fout;
+}
+
+ifstream& operator>>(ifstream& fin, Game& game)
+{
+	fin >> game.importedGameData;
+	return fin;
 }

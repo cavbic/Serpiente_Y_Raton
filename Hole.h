@@ -1,20 +1,13 @@
-
-#if !defined(HoleH)
-#define HoleH
+#pragma once
 
 #include "constants.h"
+#include "FixedGridItem.h"
 
-class Hole {
+class Hole : public FixedGridItem{
 public:
 	//constructors
-	Hole();
-	Hole& operator =(const Hole&);
 	Hole(const int x,const int y);
-	//assessors
-	static const char get_symbol() ;
-private:
-	static const char symbol_;
-	int x_, y_;
-};
 
-#endif
+private:
+
+};
