@@ -20,7 +20,8 @@ int main()
 		game.run();
 	} while (ui.play_again() == 'Y');
 
-	cout << "\nEND";
+	cout << "\nGAME OVER!\n";
+	cout << player_.get_name() << "'s Final Score is " << player_.get_score_amount() << "!";
 
 	ui.hold_window();
 	return 0;

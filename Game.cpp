@@ -93,18 +93,20 @@ string Game::prepare_end_message() const {
 	ostringstream os;
 	if (mouse_.has_escaped()) {
 		p_p->update_score_amount(1);
-		os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!";
+		os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\n1 POINT ADDED TO SCORE!";
 		cout << "\nNew Score: " << p_p->get_score_amount();
 	}
 	else
 		if (!mouse_.is_alive()) {
 			p_p->update_score_amount(-1);
-			os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!";
+			os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!\n1 POINT REMOVED FROM SCORE!";
 			cout << "\nNew Score: " << p_p->get_score_amount();
 		}
-		else
-			os << "\n\nEND OF GAME: THE PLAYER ENDED THE GAME!";
-	return os.str();
+		else {
+			os << "\n\nEND OF GAME: THE PLAYER ENDED THE GAME!\nSCORE UNCHANGED!";
+			cout << "\nScore: " << p_p->get_score_amount();
+		}
+		return os.str();
 }
 
 ofstream& operator<< (ofstream& fout, Game& game)
