@@ -13,13 +13,8 @@
 class Game
 {
 public:
-	void set_up(UserInterface* pui, Player& player_);
+	void set_up(const UserInterface* pui, Player& player_);
 	void run();
-	string prepare_grid();
-	bool is_arrow_key_code(const int keycode) const;
-	void apply_rules();
-	bool has_ended(const char& key) const;
-	string prepare_end_message() const;
 	friend ofstream& operator <<(ofstream& fout, Game& game);
 	friend ifstream& operator >>(ifstream& fin, Game& game);
 private:
@@ -27,9 +22,14 @@ private:
 	Snake snake_;
 	Nut nut_;
 	Underground underground_;
-	UserInterface* p_ui;
+	const UserInterface* p_ui;
 	Player* p_p;
 	int key_;
 	char input_;
 	string importedGameData;
+	bool is_arrow_key_code(const int keycode) const;
+	bool has_ended(const char& key) const;
+	void apply_rules();
+	string prepare_end_message() const;
+	string prepare_grid();
 };

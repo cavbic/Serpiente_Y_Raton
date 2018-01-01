@@ -17,7 +17,7 @@ class Snake: public MoveableGridItem{
 		void set_direction(int& dx, int& dy);
 		static void position_at_random();
 		void tail_Move();
-		bool is_Tail_Here(const int x, const int y);
+		const bool is_Tail_Here(const int x, const int y);
 	private:
 		static RandomNumberGenerator rng_;
 		Mouse* p_mouse_;

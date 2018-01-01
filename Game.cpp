@@ -1,6 +1,6 @@
 #include "Game.h"
 
-void Game::set_up(UserInterface* pui, Player& player_) {
+void Game::set_up(const UserInterface* pui, Player& player_) {
 	//prepare game
 	//set up the holes and nut
 	underground_.add_hole_at_position(4, 3);

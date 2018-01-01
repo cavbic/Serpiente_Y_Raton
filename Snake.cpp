@@ -62,7 +62,7 @@ void Snake::tail_Move()
 	tail_.at(0) = tFront;
 }
 
-bool Snake::is_Tail_Here(const int x, const int y)
+const bool Snake::is_Tail_Here(const int x, const int y)
 {
 	for (int i = 0; i < 3; i++) {
 		if (tail_.at(i).get_x() == x &&  tail_.at(i).get_y() == y)
