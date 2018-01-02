@@ -30,14 +30,13 @@ public:
 	Underground();
 	//Hole get_hole_no(int no) const;
 	char get_Hole_Symbol() const;
-	void add_hole_at_position(const int x, const int y);
 	int get_Holes_Size() const;
 	int find_hole_number_at_position(const int x,const int y);
 	int get_Hole_x(const int holeNum) const;
 	int get_Hole_y(const int holeNum) const;
 private:
 	const int MAXHOLES; //number of holes in underground
-	vector<Hole> holes_;
+	const vector<Hole> holes_;
 
 };
 

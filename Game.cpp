@@ -3,9 +3,7 @@
 void Game::set_up(const UserInterface* pui, Player& player_) {
 	//prepare game
 	//set up the holes and nut
-	underground_.add_hole_at_position(4, 3);
-	underground_.add_hole_at_position(15, 10);
-	underground_.add_hole_at_position(7, 15);
+
 	//mouse state already set up in its contructor
 	//set up snake
 	snake_.position_at_random();
