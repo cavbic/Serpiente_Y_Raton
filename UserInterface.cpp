@@ -1,6 +1,8 @@
 #include "UserInterface.h" 
 #include "Player.h"
+#include "Game.h"
 #include <conio.h>		//for _getch()
+
 
 int UserInterface::get_keypress_from_user() const {
 	//get key or command selected by user
@@ -28,8 +30,20 @@ void UserInterface::hold_window() const {
 }
 
 void UserInterface::display_stats(const string& name, const int score) const {
-	cout << "\nUsername: " << name << "\nScore: " << score;
+	cout << "\nUsername: " << name << "\nScore: " << score << "\nHit 'C' to activate cheat mode.\n\n";
+
 }
+
+//void UserInterface::cheat_message()
+//{
+//	if (Game::cheat_ == true)
+//		cout << "\n\nCHEAT MODE ACTIVATED!"; // 21 CHARACTERS
+//}
+//
+//void UserInterface::erase_cheat_message()
+//{
+//	cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+//}
 
 string UserInterface::entry_screen() {
 	cout << "\n\n\n\n\n\t\t\t";
@@ -43,3 +57,4 @@ char UserInterface::play_again() {
 	cin >> input_;
 	return(toupper(input_));
 }
+

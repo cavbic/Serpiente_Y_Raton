@@ -24,6 +24,8 @@ public:
 	void display_stats(const string&, const int) const;
 	string entry_screen();
 	char play_again();
+	void cheat_message();
+	void erase_cheat_message();
 private:
 	string username_;
 	char input_;
