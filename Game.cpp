@@ -109,12 +109,42 @@ string Game::prepare_end_message() const {
 
 ofstream& operator<< (ofstream& fout, Game& game)
 {
-	fout << game.prepare_grid();
+	string gameCoords;
+	gameCoords = "Mouse," + game.mouse_.get_x + "," + game.mouse_.get_y + "|Snake," + game.snake_.get_x + ","
+		+ game.snake_.get_y + "|Nut," + game.nut_.get_x + "," + game.nut_.get_y;
+	fout << gameCoords;
 	return fout;
 }
 
 ifstream& operator>>(ifstream& fin, Game& game)
 {
-	fin >> game.importedGameData;
+	string importedData;
+	char itemdelimiter = '|';
+	char coorddelimiter = ',';
+	fin >> importedData;
+	stringstream gameItemStr(importedData);
+	while (gameItemStr.good())
+	{
+		string singleItem;
+		getline(gameItemStr, singleItem, itemdelimiter);
+
+		string itemname = singleItem.substr(0, singleItem.find(coorddelimiter));
+		string coords = singleItem.substr(singleItem.find(coorddelimiter) + 1);
+		int x = stoi(coords.substr(0, singleItem.find(coorddelimiter)));
+		int y = stoi(coords.substr(singleItem.find(coorddelimiter) + 1));
+
+		if (itemname == "Mouse")
+		{
+			game.mouse_.update_position(x, y);
+		}
+		else if (itemname == "Snake")
+		{
+			game.snake_.update_position(x, y);
+		}
+		else if (itemname == "Nut")
+		{
+			game.nut_.update_position(x, y);
+		}
+	}
 	return fin;
 }
