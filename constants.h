@@ -32,5 +32,6 @@
 
 //defining the other command letters
 #define QUIT      ('Q')	//to end game
+#define CHEAT     ('C') //to cheat
 
 #endif // !defined(constantsH)

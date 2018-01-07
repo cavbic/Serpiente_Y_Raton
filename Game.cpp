@@ -12,6 +12,10 @@ void Game::set_up(const UserInterface* pui, Player& player_) {
 	//set up the UserInterface
 	p_ui = pui;
 	p_p = &player_;
+
+	//default cheat settings
+	cheatCount_ = 0;
+	cheat_ = false;
 }
 void Game::run() {
 	assert(p_ui != nullptr);
@@ -20,14 +24,36 @@ void Game::run() {
 	key_ = p_ui->get_keypress_from_user();
 	while (!has_ended(key_))
 	{
+		if (is_cheat_key_pressed(key_))
+		{
+			if (cheat_ == false)
+			{
+				cheat_ = true;
+			}
+			else
+			{
+				cheat_ = false;
+			}
+			cheatCount_ += 1;
+		}
 		if (is_arrow_key_code(key_))
 		{
-			mouse_.scamper(key_);
-			snake_.tail_Move();
-			snake_.chase_mouse();
-			p_ui->draw_grid_on_screen(prepare_grid());
-			p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
-			apply_rules();
+			if (!cheat_check(cheat_))
+			{
+				mouse_.scamper(key_);
+				snake_.tail_Move();
+				snake_.chase_mouse();
+				p_ui->draw_grid_on_screen(prepare_grid());
+				p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
+				apply_rules();
+			}
+			else
+			{
+				mouse_.scamper(key_);
+				p_ui->draw_grid_on_screen(prepare_grid());
+				p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
+				apply_rules();
+			}
 		}
 		key_ = p_ui->get_keypress_from_user();
 	}
@@ -87,12 +113,30 @@ void Game::apply_rules() {
 bool Game::has_ended(const char& key) const {
 	return ((key == 'Q') || (!mouse_.is_alive()) || (mouse_.has_escaped()));
 }
+
+bool Game::is_cheat_key_pressed(const char & key) const
+{
+	return (key == CHEAT);
+}
+
+bool Game::cheat_check(bool cheat_)
+{
+	return cheat_;
+}
+
 string Game::prepare_end_message() const {
 	ostringstream os;
 	if (mouse_.has_escaped()) {
-		p_p->update_score_amount(1);
-		os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\n1 POINT ADDED TO SCORE!";
-		cout << "\nNew Score: " << p_p->get_score_amount();
+		if (cheatCount_ == 0)
+		{
+			p_p->update_score_amount(1);
+			os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\n1 POINT ADDED TO SCORE!";
+			cout << "\nNew Score: " << p_p->get_score_amount();
+		}
+		else
+		{
+			os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\nBUT YOU CHEATED, NO CHANGE TO SCORE!";
+		}
 	}
 	else
 		if (!mouse_.is_alive()) {
@@ -110,8 +154,8 @@ string Game::prepare_end_message() const {
 ofstream& operator<< (ofstream& fout, Game& game)
 {
 	string gameCoords;
-	gameCoords = "Mouse," + game.mouse_.get_x + "," + game.mouse_.get_y + "|Snake," + game.snake_.get_x + ","
-		+ game.snake_.get_y + "|Nut," + game.nut_.get_x + "," + game.nut_.get_y;
+	gameCoords = "Mouse," + to_string(game.mouse_.get_x()) + "," + to_string(game.mouse_.get_y()) + "|Snake," + to_string(game.snake_.get_x()) + ","
+		+ to_string(game.snake_.get_y()) + "|Nut," + to_string(game.nut_.get_x()) + "," + to_string(game.nut_.get_y());
 	fout << gameCoords;
 	return fout;
 }
