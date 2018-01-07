@@ -26,7 +26,6 @@ private:
 	Player* p_p;
 	int key_;
 	char input_;
-	bool cheat_;
 	int cheatCount_;
 	string importedGameData;
 	bool is_arrow_key_code(const int keycode) const;
@@ -34,6 +33,6 @@ private:
 	void apply_rules();
 	string prepare_end_message() const;
 	string prepare_grid();
+	bool cheat_;
 	bool is_cheat_key_pressed(const char& key) const;
-	bool cheat_check(bool cheat_);
 };

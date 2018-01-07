@@ -1,12 +1,3 @@
-// UserInterface.h: UserInterface for the UserInterface class
-//////////////////////////////////////////////////////////////////////
-//---------------------------------------------------------------------
-// Date       Programmer    Amendments made and justification (if needed)
-//---------------------------------------------------------------------
-// 
-//
-//---------------------------------------------------------------------
-
 #if !defined(UserInterfaceH)
 #define UserInterfaceH
 
@@ -23,9 +14,8 @@ public:
 	void hold_window() const;
 	void display_stats(const string&, const int) const;
 	string entry_screen();
+	void cheat_message(bool& cheat_) const;
 	char play_again();
-	void cheat_message();
-	void erase_cheat_message();
 private:
 	string username_;
 	char input_;

@@ -30,20 +30,15 @@ void UserInterface::hold_window() const {
 }
 
 void UserInterface::display_stats(const string& name, const int score) const {
-	cout << "\nUsername: " << name << "\nScore: " << score << "\nHit 'C' to activate cheat mode.\n\n";
+	cout << "\nUsername: " << name << "\nScore: " << score << "\nHit 'C' to activate cheat mode.\n";
 
 }
 
-//void UserInterface::cheat_message()
-//{
-//	if (Game::cheat_ == true)
-//		cout << "\n\nCHEAT MODE ACTIVATED!"; // 21 CHARACTERS
-//}
-//
-//void UserInterface::erase_cheat_message()
-//{
-//	cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
-//}
+void UserInterface::cheat_message(bool& cheat_) const
+{
+	if (cheat_ == true)
+		cout << "\nCHEAT MODE ACTIVATED!";
+}
 
 string UserInterface::entry_screen() {
 	cout << "\n\n\n\n\n\t\t\t";

@@ -37,7 +37,7 @@ void Game::run() {
 		}
 		if (is_arrow_key_code(key_))
 		{
-			if (!cheat_check(cheat_))
+			if (cheat_ == false)
 			{
 				mouse_.scamper(key_);
 				snake_.tail_Move();
@@ -51,6 +51,7 @@ void Game::run() {
 				mouse_.scamper(key_);
 				p_ui->draw_grid_on_screen(prepare_grid());
 				p_ui->display_stats(p_p->get_name(), p_p->get_score_amount());
+				p_ui->cheat_message(cheat_);
 				apply_rules();
 			}
 		}
@@ -118,11 +119,6 @@ bool Game::is_cheat_key_pressed(const char & key) const
 	return (key == CHEAT);
 }
 
-bool Game::cheat_check(bool cheat_)
-{
-	return cheat_;
-}
-
 string Game::prepare_end_message() const {
 	ostringstream os;
 	if (mouse_.has_escaped()) {
@@ -134,19 +130,30 @@ string Game::prepare_end_message() const {
 		}
 		else
 		{
-			os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\nBUT YOU CHEATED, NO CHANGE TO SCORE!";
+			if (cheat_ == true)	//for message layout
+				os << "\n\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\nBUT YOU CHEATED, NO CHANGE TO SCORE!";
+			else
+				os << "\nEND OF GAME: THE MOUSE ESCAPED UNDERGROUND!\nBUT YOU CHEATED, NO CHANGE TO SCORE!";
 		}
 	}
 	else
-		if (!mouse_.is_alive()) {
-			p_p->update_score_amount(-1);
-			os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!\n1 POINT REMOVED FROM SCORE!";
-			cout << "\nNew Score: " << p_p->get_score_amount();
+		if (!mouse_.is_alive() && cheatCount_ > 0) {
+			if (cheat_ == true)	//for message layout
+				os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!\nBUT YOU CHEATED, NO CHANGE TO SCORE!";
+			else
+				os << "\nEND OF GAME: THE SNAKE ATE THE MOUSE!\nBUT YOU CHEATED, NO CHANGE TO SCORE!";
 		}
-		else {
-			os << "\n\nEND OF GAME: THE PLAYER ENDED THE GAME!\nSCORE UNCHANGED!";
-			cout << "\nScore: " << p_p->get_score_amount();
-		}
+		else
+				if (!mouse_.is_alive()) {
+					p_p->update_score_amount(-1);
+					os << "\n\nEND OF GAME: THE SNAKE ATE THE MOUSE!\n1 POINT REMOVED FROM SCORE!";
+					cout << "\nNew Score: " << p_p->get_score_amount();
+				}		
+					else
+					{
+						os << "\n\nEND OF GAME: THE PLAYER ENDED THE GAME!\nSCORE UNCHANGED!";
+						cout << "\nScore: " << p_p->get_score_amount();
+					}
 		return os.str();
 }
 
