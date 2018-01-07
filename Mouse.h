@@ -32,8 +32,6 @@ class Mouse:public MoveableGridItem {
 		//data members
 		bool alive_;
 		bool escaped_;
-		//supporting functions 
-		void position_in_middle_of_grid();
 
 };
 

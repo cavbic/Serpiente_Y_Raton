@@ -8,7 +8,6 @@ RandomNumberGenerator Snake::rng_;
 
 Snake::Snake():MoveableGridItem(rng_.get_random_value(SIZE), rng_.get_random_value(SIZE), SNAKEHEAD), tail_()
 {
-	position_at_random();
 	p_mouse_ = nullptr; //to make the pointer is safe before the snake spots the mouse
 	for (int i = 0; i < 3; i++) {
 		TailItem t(this->get_x(), this->get_y());
@@ -47,11 +46,6 @@ void Snake::set_direction(int& dx, int& dy)
 	else                                  //otherwise
 		if (get_y() > p_mouse_->get_y())  //if snake is below mouse
 			dy = -1;                      //snake should move up
-}
-
-void Snake::position_at_random() {
-	//spawn_x_ = rng_.get_random_value(SIZE);        //WARNING: may fall on mouse
-	//spawn_y_ = rng_.get_random_value(SIZE);
 }
 
 void Snake::tail_Move()

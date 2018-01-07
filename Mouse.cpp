@@ -8,7 +8,7 @@
 
 Mouse::Mouse():MoveableGridItem(SIZE / 2, SIZE / 2,MOUSE), alive_(true), escaped_(false)
 {
-	//position_in_middle_of_grid(); 
+	
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,13 +67,3 @@ void Mouse::scamper(const char& k) { //move mouse in required direction
 		update_position(mouse_dx_, mouse_dy_);		//go in that direction
 	}
 }
-
-//////////////////////////////////////////////////////////////////////
-// Private functions
-//////////////////////////////////////////////////////////////////////
-
-
-//void Mouse::position_in_middle_of_grid() {
-//	//x_ = SIZE /2;
-//	//y_ = SIZE /2;
-//}

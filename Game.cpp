@@ -6,7 +6,6 @@ void Game::set_up(const UserInterface* pui, Player& player_) {
 
 	//mouse state already set up in its contructor
 	//set up snake
-	snake_.position_at_random();
 	snake_.spot_mouse(&mouse_);
 
 	//set up the UserInterface

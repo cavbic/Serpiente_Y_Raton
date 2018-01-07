@@ -15,7 +15,6 @@ class Snake: public MoveableGridItem{
 		void spot_mouse(Mouse* p_mouse);
 		void chase_mouse();
 		void set_direction(int& dx, int& dy);
-		static void position_at_random();
 		void tail_Move();
 		const bool is_Tail_Here(const int x, const int y);
 	private:
